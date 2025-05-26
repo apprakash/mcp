@@ -13,9 +13,17 @@ load_dotenv()
 
 PAPER_DIR = "papers"
 
+
+
 # Initialize FastMCP server
-# Get port from environment variable or use default
-port = int(os.environ.get("PORT", 8001))
+# Try to use the default PORT environment variable, otherwise use 8001
+try:
+    port = int(os.environ.get("PORT", 8001))
+    print(f"Using port from environment: {port}")
+except (ValueError, TypeError):
+    port = 8001
+    print(f"Invalid PORT environment variable, using default port: {port}")
+
 mcp = FastMCP("research", port=port)
 
 @mcp.tool()
