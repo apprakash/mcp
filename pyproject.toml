@@ -1,13 +1,10 @@
 [project]
-name = "mcp-research-server"
+name = "mcp-project"
 version = "0.1.0"
-description = "MCP Research Server with arXiv integration"
+description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 dependencies = [
-    "anthropic",
     "arxiv>=2.2.0",
-    "mcp>=1.9.1",
-    "nest-asyncio>=1.6.0",
-    "python-dotenv>=1.1.0",
+    "mcp>=1.7.1",
 ]
