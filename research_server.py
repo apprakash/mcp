@@ -15,7 +15,7 @@ PAPER_DIR = "papers"
 
 # Initialize FastMCP server
 # Get port from environment variable or use default
-port = int(os.environ.get("PORT", 10000))
+port = int(os.environ.get("PORT", 8001))
 mcp = FastMCP("research", port=port)
 
 @mcp.tool()
