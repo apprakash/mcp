@@ -1,14 +1,22 @@
 import arxiv
 import json
 import os
+import sys
 from typing import List
 from mcp.server.fastmcp import FastMCP
+from dotenv import load_dotenv
+
+
+
+# Load environment variables
+load_dotenv()
 
 PAPER_DIR = "papers"
 
 # Initialize FastMCP server
-# Using different ports for the main server and internal HTTP server
-mcp = FastMCP("research", port=8001)
+# Get port from environment variable or use default
+port = int(os.environ.get("PORT", 10000))
+mcp = FastMCP("research", port=port)
 
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> List[str]:
