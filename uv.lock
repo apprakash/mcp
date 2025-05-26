@@ -279,7 +279,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "anthropic", specifier = ">=0.52.0" },
+    { name = "anthropic" },
     { name = "arxiv", specifier = ">=2.2.0" },
     { name = "mcp", specifier = ">=1.9.1" },
     { name = "nest-asyncio", specifier = ">=1.6.0" },
