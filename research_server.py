@@ -1,30 +1,16 @@
 import arxiv
 import json
 import os
-import sys
 from typing import List
 from mcp.server.fastmcp import FastMCP
 from dotenv import load_dotenv
-
-
 
 # Load environment variables
 load_dotenv()
 
 PAPER_DIR = "papers"
 
-
-
-# Initialize FastMCP server
-# Try to use the default PORT environment variable, otherwise use 8001
-try:
-    port = int(os.environ.get("PORT", 8001))
-    print(f"Using port from environment: {port}")
-except (ValueError, TypeError):
-    port = 8001
-    print(f"Invalid PORT environment variable, using default port: {port}")
-
-mcp = FastMCP("research", port=port)
+mcp = FastMCP("research",port=8001, host="0.0.0.0")
 
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> List[str]:
@@ -210,4 +196,4 @@ uctions:
 
 
 if __name__ == "__main__":
-    mcp.run(transport='sse')
+    mcp.run(transport="sse")
